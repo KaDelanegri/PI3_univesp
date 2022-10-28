@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+.middle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 999999;
+}
+.bar {
+  width: 10px;
+  height: 70px;
+  background: #fff;
+  display: inline-block;
+  transform-origin: bottom center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  /*   box-shadow:5px 10px 20px inset rgba(255,23,25.2); */
+  animation: loader 1.2s linear infinite;
+}
+.bar1 {
+  animation-delay: 0.1s;
+}
+.bar2 {
+  animation-delay: 0.2s;
+}
+.bar3 {
+  animation-delay: 0.3s;
+}
+.bar4 {
+  animation-delay: 0.4s;
+}
+.bar5 {
+  animation-delay: 0.5s;
+}
+.bar6 {
+  animation-delay: 0.6s;
+}
+.bar7 {
+  animation-delay: 0.7s;
+}
+.bar8 {
+  animation-delay: 0.8s;
+}
+
+@keyframes loader {
+  0% {
+    transform: scaleY(0.1);
+  }
+  50% {
+    transform: scaleY(1);
+    background: #273a70;
+  }
+  100% {
+    transform: scaleY(0.1);
+    background: transparent;
+  }
+}
+
+</style>
+
+</head>
+
+<body class="bg-gradient-primary">
+    <div class="middle" style="display:none">
+      <div class="bar bar1"></div>
+      <div class="bar bar2"></div>
+      <div class="bar bar3"></div>
+      <div class="bar bar4"></div>
+      <div class="bar bar5"></div>
+      <div class="bar bar6"></div>
+      <div class="bar bar7"></div>
+      <div class="bar bar8"></div>
+    </div>
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Bem vindo!</h1>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input type="email"  class="form-control form-control-user"
+                                                id="email" aria-describedby="emailHelp"
+                                                placeholder="E-mail">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="senha" placeholder="Senha">
+                                        </div>
+                                        <a href="#" class="btn btn-primary btn-user btn-block" id="logar">
+                                            Login
+                                        </a>
+                                        <a href="#" class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#modal-cadastro">
+                                            Cadastrar
+                                        </a>
+
+                                        
+                                       
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+     <!-- Modal Cadastro -->
+     <div class="modal" id="modal-cadastro">
+        <div class="modal-dialog modal-xs">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Cadastro</h4>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <p>Nome<span style="color:red">*</span></p>
+                        <input type="text" class="form-control" id="nome-cadastro">
+                    </div>
+                </div>
+               <div class="row">
+                <div class="col-md-12 mb-3">
+                    <p>E-mail<span style="color:red">*</span></p>
+                    <input type="text" class="form-control" id="email-cadastro">
+                </div>
+               </div>
+               <div class="row">
+                <div class="col-md-12 mb-3">
+                    <p>Senha<span style="color:red">*</span></p>
+                    <input type="password" class="form-control" id="senha-cadastro">
+                </div>
+               </div>
+               <div class="row">
+                <div class="col-md-12 mb-3">
+                    <p>Token<span style="color:red">*</span></p>
+                    <input type="text" class="form-control" id="token-cadastro">
+                </div>
+               </div>
+               <div class="row">
+                <div class="col-md-12 mb-3">
+                    <p>Foto</p>
+                    <input type="file" id="uploadFoto" name="uploadFoto"><br>
+                    <img id="myImg" src="" style="width: 67px;" >
+                </div>
+              </div>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-info" id="cadastrar">Salvar</button>
+            </div>
+      
+          </div>
+        </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+
+    base64String = "";
+    let validos = /(\.jpg|\.png)$/i;
+    window.addEventListener('load', function() {
+    document.querySelector('input[type="file"]').addEventListener('change', function(e) {
+    let fileInput = $(this);
+    let nome = fileInput.get(0).files["0"].name;
+    
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    
+            if (this.files && this.files[0]) {
+            var img = document.querySelector('img');
+            img.onload = () => {
+                URL.revokeObjectURL(img.src);
+            }
+                if (validos.test(nome)) {
+            
+                    reader.onloadend = () => {
+            
+                    base64String = reader.result
+                        .replace("data:", "")
+                        .replace(/^.+,/, "");
+                    $('#myImg').attr('src', "data:image/png;base64,"+base64String);
+                    };
+                    
+                    reader.readAsDataURL(file);
+        
+        
+                } else {
+                    alert('Formatos suportados são jpg/png');
+                }
+            }
+    });
+    });
+
+    
+
+    $('#logar').on('click', function () {
+
+      var dados = {
+        "email": $("#email").val(),
+        "password": $("#senha").val()
+      };
+
+      $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        url: 'chamada API',
+        data: JSON.stringify(dados),
+        success(result) {
+          var email = result.email;
+          if (email != "") {
+            localStorage.setItem("user", result.username);
+            window.location.href = "tarefas.html";
+          }
+        },
+        error(result) { swal('Atenção', 'Login inválido, por favor verifique o usuário ou senha digitados.', 'warning'); }
+      })
+    })
+
+    $('#cadastrar').on('click',function(){
+
+        if($("#nome-cadastro").val() == '' ||  $("#email-cadastro").val() == '' || $("#senha-cadastro").val() == '' || $("#token-cadastro").val()=='')
+        swal('Atenção', 'Preencha os campos obrigatórios', 'warning');
+        else{
+
+            $(".middle").css('display','block');
+        
+            var dados = {
+            "photo": base64String,
+            "username": $("#nome-cadastro").val(),
+            "email": $("#email-cadastro").val(),
+            "password": $("#senha-cadastro").val(),
+            "token": $("#token-cadastro").val(),
+            };
+    
+            $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            url: 'aqui url da API cadastro',
+            data: JSON.stringify(dados),
+            statusCode: { 409: function () { swal('Atenção', 'Erro ao cadastrar.', 'warning'); } },
+            success(result) {
+                $(".middle").css('display','none');
+                swal('Atenção', 'Cadastro realizado com sucesso !', 'success');
+                $('#modal-cadastrar').modal('hide');
+            },
+            error(){
+                $(".middle").css('display','none');
+                swal('Atenção','Erro ao realizar consulta','warning');
+            }
+            })
+        }
+       
+        })
+    </script>
+
+</body>
+
+</html>
