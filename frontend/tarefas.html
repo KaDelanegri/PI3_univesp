@@ -292,17 +292,17 @@
                     type: 'POST',
                     dataType: 'json',
                     contentType: "application/json; charset=utf-8",
-                    url: 'aqui url da API cadastro',
+                    url: 'http://localhost:8080/task',
                     data: planilhaConvert,
-                    statusCode: { 409: function () { swal('Atenção', 'Erro ao cadastrar.', 'warning'); } },
-                    success(result) {
-                        $(".middle").css('display','none');
-                        swal('Atenção', 'Cadastro realizado com sucesso !', 'success');
-                    },
-                    error(){
-                        $(".middle").css('display','none');
-                        swal('Atenção','Erro ao realizar consulta','warning');
-                    }
+                    statusCode: { 201: function () { swal('Aviso', 'Cadastrado com sucesso.', 'success'); $(".middle").css('display','none'); } },
+                    // success(result) {
+                    //     $(".middle").css('display','none');
+                    //     swal('Atenção', 'Cadastro realizado com sucesso !', 'success');
+                    // },
+                    // error(){
+                    //     $(".middle").css('display','none');
+                    //     swal('Atenção','Erro ao realizar consulta','warning');
+                    // }
                     })
                 }
 
@@ -310,16 +310,12 @@
 
             planilhaConvert = '';
             function FormataStringData(data) {
-                if (String(data) != ''){
-                    data = String(data);
-                    var dia  = data.split("/")[0];
-                    var mes  = data.split("/")[1];
-                    var ano  = data.split("/")[2];
-                    return ano + '-' + ("0"+mes).slice(-2) + '-' + ("0"+dia).slice(-2);
-                }
-                else
-                return '';
-                
+                let utc_days = Math.floor(data - 25569);
+                let utc_value = utc_days * 86400;
+                d = new Date(utc_value* 1000);
+                month = '' + (d.getMonth() + 1), day = '' + (d.getDate()+1), year = d.getFullYear(); 
+                if (month.length < 2) month = '0' + month; if (day.length < 2) day = '0' + day;
+                return [year, month, day].join('-'); 
             }
             document
             .getElementById("fileUpload")
@@ -343,21 +339,22 @@
                                 4
                             );
 
-                           // planilha = unescape(encodeURIComponent(planilha))
                            planilha = JSON.parse(planilha);
                            
                             
                             planilhaConvert = planilha.map(function(item){
+                                console.log(String(item.Data))
                                 var data = FormataStringData(item.Data)
                             return { title: item.Titulo,
                                      description: item.Descrição,
                                      expirationDate: data,
                                      type: item.Tipo,
-                                     subject: item.Assunto};
+                                     className: item.Classe,
+                                     subject: item.Matéria};
                             });
-
+                            
                             planilhaConvert  = JSON.stringify(planilhaConvert);
-
+                            console.log(planilhaConvert)
                             
                         });
                     };

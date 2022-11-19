@@ -259,7 +259,7 @@
         type: 'POST',
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
-        url: 'chamada API',
+        url: 'http://localhost:8080/user/login',
         data: JSON.stringify(dados),
         success(result) {
           var email = result.email;
@@ -292,7 +292,7 @@
             type: 'POST',
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
-            url: 'aqui url da API cadastro',
+            url: 'http://localhost:8080/user/registration',
             data: JSON.stringify(dados),
             statusCode: { 409: function () { swal('Atenção', 'Erro ao cadastrar.', 'warning'); } },
             success(result) {
